@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SistemaFarmacia;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
