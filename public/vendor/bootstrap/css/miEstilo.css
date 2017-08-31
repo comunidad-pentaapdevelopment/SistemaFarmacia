@@ -1,3 +1,10 @@
-.tam-img{
-	height: 150px;
+body, html{
+	height: 100%;
+	width: 100%;
 }
+#map{
+        height: 90%;
+        width: 70%;
+        margin-left: 202px;
+        margin-top: 30px;
+	}
