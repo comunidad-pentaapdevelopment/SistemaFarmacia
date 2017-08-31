@@ -27,9 +27,48 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
-<body>
-<div id="map">
-</div>
+
+<body id="page-top" class="index">
+
+    <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
+
+    <nav id="mainNav" id="nav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Encontra tu Farmacia</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#cerca">Buscar Cerca mio</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#ubicacion">Buscar En Una Ubicación</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header >
+        <div class="jumbotron">
+            </div>
+
+    </header>
+
+    <!--<div id="map">
+    </div>-->
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
