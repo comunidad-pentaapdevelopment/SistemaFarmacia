@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-08-2017 a las 00:27:12
+-- Tiempo de generación: 04-09-2017 a las 16:15:47
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `farmacias` (
   `estaPago` tinyint(1) NOT NULL,
   `localidad` varchar(500) NOT NULL,
   `turno` tinyint(1) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Volcado de datos para la tabla `farmacias`
@@ -62,7 +62,8 @@ INSERT INTO `farmacias` (`id`, `nombre`, `direccion`, `telefono`, `latitud`, `lo
 (17, 'Farmacia Argentina', 'Av. Gral. Roca 663', '03814247491', '-26.84256300000000', '-65.21036100000000', 0, 'San Miguel de Tucuman', 0),
 (18, 'Farmacias Del Pueblo', 'Av. Gral. Roca 830', ' 03814200472', '-26.84233300000000', '-65.21276300000000', 0, 'San Miguel de Tucuman', 0),
 (19, 'San Juan farmacia', 'Santiago del Estero 1022', '03814224684', '-26.82261500000000', '-65.21112600000000', 0, 'San Miguel de Tucuman', 0),
-(20, 'Farmacia San Martín', 'Calle Batalla de Ayacucho 597', '03814242074', '-26.83787900000000', '-65.21136700000000', 0, 'San Miguel de Tucuman', 0);
+(20, 'Farmacia San Martín', 'Calle Batalla de Ayacucho 597', '03814242074', '-26.83787900000000', '-65.21136700000000', 0, 'San Miguel de Tucuman', 0),
+(21, 'Farmacia Mate de Luna', 'AV. 24 de Septiembre 1399', '03814302959', '-26.82824300000000', '-65.21838400000000', 0, 'San Miguel De Tucuman', 0);
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,7 @@ ALTER TABLE `publicidades`
 -- AUTO_INCREMENT de la tabla `farmacias`
 --
 ALTER TABLE `farmacias`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `publicidades`
 --
