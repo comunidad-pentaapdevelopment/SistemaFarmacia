@@ -62,10 +62,59 @@
     </nav>
 
     <header >
-        <div class="jumbotron">
+        <div class="container" id="maincontent" tabindex="-1">
+            <!-- AQUI VA LO DEL CAROUSEL DE PUBLICIDADES -->
             </div>
 
     </header>
+
+    <section id="cerca">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Farmacias Cercanas</h2>
+                    <br></br>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-condenser table-hover">
+                                    <thead>
+                                        <th>Nombre</th>
+                                        <th>Dirección</th>
+                                        <th>Telefono</th>
+                                        <th>Distancia</th>
+                                        <th>Turno</th>
+                                        <th>Como llegar</th>
+                                    </thead>
+                                    @foreach($farmacias as $farm)
+                                    <tr>
+                                        <td>{{$farm->nombre}}</td>
+                                        <td>{{$farm->direccion}}</td>
+                                        <td>{{$farm->telefono}}</td>
+                                        <td>500mts</td>
+                                        @if($farm->turno == 1)
+                                           <td><span class="glyphicon glyphicon-ok green text-success"></span></td>
+                                        @else
+                                            <td><span class="glyphicon glyphicon-remove text-danger"></span></td>
+                                        @endif       
+                                        @if($farm->estaPago == 1)                           
+                                            <td><button type="button" class="btn btn-info">VER EN EL MAPA</button></td>
+                                        @else
+                                            <td></td>
+                                        @endif
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
     <!--<div id="map">
     </div>-->
