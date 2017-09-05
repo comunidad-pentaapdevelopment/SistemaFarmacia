@@ -54,6 +54,9 @@
                     <li class="page-scroll">
                         <a href="#ubicacion">Buscar En Una Ubicación</a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="#">Mapa</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -98,8 +101,9 @@
                                         @else
                                             <td><span class="glyphicon glyphicon-remove text-danger"></span></td>
                                         @endif       
-                                        @if($farm->estaPago == 1)                           
-                                            <td><button type="button" class="btn btn-info">VER EN EL MAPA</button></td>
+                                        @if($farm->estaPago == 0)                           
+                                          <td><a href="{{route('farmacia-detalle',$farm->id)}}">Como llegar?</a>
+                                            </td>
                                         @else
                                             <td></td>
                                         @endif

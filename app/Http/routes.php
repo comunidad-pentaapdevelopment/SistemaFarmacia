@@ -13,4 +13,7 @@
 /*Route::get('/home','HomeController@index');*/
 
 Route::get('/' ,'HomeController@index');
+Route::get('/{id}',[
+	'as'=>'farmacia-detalle',
+'uses'=>'HomeController@mostrar']);
 

@@ -37,4 +37,11 @@ class HomeController extends Controller
 
         return view('welcome',compact('farmacias'));
     }
+    
+    public function mostrar($id)
+    {
+        $farm=Farmacia::where('id',$id)->first();
+return view('map',compact('farm'));
+    }
+    
 }
