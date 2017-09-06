@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function index()
     {
    
-        $farmacias=Farmacia::all();
+        $farmacias=Farmacia::paginate(5);
 
         return view('welcome',compact('farmacias'));
     }
@@ -41,7 +41,7 @@ class HomeController extends Controller
     public function mostrar($id)
     {
         $farm=Farmacia::where('id',$id)->first();
-return view('map',compact('farm'));
+        return view('map',compact('farm'));
     }
     
 }

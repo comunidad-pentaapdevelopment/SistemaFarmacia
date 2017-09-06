@@ -3,9 +3,25 @@ body, html{
 	width: 100%;
 }
 
-#map{
-        height: 90%;
+#map {
+		height: 90%;
         width: 70%;
-        margin-left: 202px;
-        margin-top: 30px;
+        margin-left: 16%;
+        margin-top: 18%;
+}
+
+@media only screen and (max-width: 768px) {
+	#map{
+		margin-left: 20%;
+    	margin-top: 18%;
 	}
+}
+
+@media only screen and (max-width: 480px) {
+	#map{
+		margin-left: 17%;
+    	margin-top: 38%;
+	}
+}
+
+
