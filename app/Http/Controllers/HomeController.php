@@ -31,8 +31,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
+        //$queryFarmacias = "SELECT *, st_distance_sphere(point(lat,long),point(lat,long)) as distancia FROM Farmacia ORDER BY distancia ASC;";
         $farmacias=Farmacia::paginate(10);
 
         /*for ($i=0; $i < $farmacias.length() ; $i++) { 

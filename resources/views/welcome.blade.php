@@ -28,7 +28,7 @@
 
 </head>
 
-<body id="page-top" class="index" onload="obtenerMiPosicion(function(position){console.log(position)})">
+<body id="page-top" class="index" onload="obtenerMiPosicion(function(position){console.log(position);mostrarCercaMio();})">
 
     <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
 
@@ -169,6 +169,16 @@
     
 
   <script>
+      function ocultarCercaMio(){
+        var cercaMio = document.getElementById('cerca');
+        cercaMio.style.display = "none"; //Lo oculto
+      }
+      function mostrarCercaMio(){
+        var cercaMio = document.getElementById('cerca');
+        cercaMio.style.display = "block"; //Lo oculto
+      }
+      ocultarCercaMio();
+
       var map;
       var markers=[];
 

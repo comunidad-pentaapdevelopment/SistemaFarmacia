@@ -1,12 +1,48 @@
+Storage.prototype.setObject = function(key,value){
+	console.log(JSON.stringify(value));
+	this.setItem(key,JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key){
+	var value = this.getItem(key);
+	return value && JSON.parse(value);
+}
 
 function obtenerMiPosicion(callback){
+	console.log('obtenerMiPosicion');
 	if (navigator.geolocation) {
-    var tiempo_de_espera = 3000;
-    navigator.geolocation.getCurrentPosition(callback);
-  }
-  else {
-    alert("La Geolocalización no es soportada por este navegador");
-  }
+		//ObtenerMiUbicacion de LocalStora
+		var miPosicion = obtenerMiPosicionEnLocalStorage();
+		console.log(miPosicion);
+		if(miPosicion == null
+			|| chequearSiMiPosicionEsValida(miPosicion)){
+    		navigator.geolocation.getCurrentPosition(
+    			function(position){
+    				callback(position);
+    				guardarMiPosicionEnLocalStorage(position);
+    			}
+    			,mostrarError);
+    	}else{
+    		callback(miPosicion);
+    	}
+  	}else{
+   		//alert("La Geolocalización no es soportada por este navegador");
+   		mostrarError({'code':4});
+  	}
+}
+function chequearSiMiPosicionEsValida(position){
+	let secondsAgo = Date.now() - (20*1000); //valida por 20 segundos
+	if(position.timestamp > secondsAgo){
+		console.log('valida');
+		return true; 
+	}
+	return false;
+}
+function guardarMiPosicionEnLocalStorage(position){
+	localStorage.setObject(position);
+}
+function obtenerMiPosicionEnLocalStorage(){
+	return localStorage.getObject("miPosicion");
 }
 
 function mostrarMiPosicionEnMapa(position){
@@ -27,16 +63,6 @@ function mostrarMiPosicionEnMapa(position){
 }
 
 function mostrarError(error) {
-        var errores = {1: 'Permiso denegado', 2: 'Posición no disponible', 3: 'Expiró el tiempo de respuesta'};
-        alert("Error: " + errores[error.code]);
-      }
-
-Storage.prototype.setObject = function(key,value){
-	this.setItem(key,
-		JSON.stringify(value));
-}
-
-Storage.prototype.getObject = function(key){
-	var value = this.getItem(key);
-	return value && JSON.parse(value);
+    var errores = {1: 'Permiso denegado', 2: 'Posición no disponible', 3: 'Expiró el tiempo de respuesta', 4:'Navegador no compatible'};
+	alert("Error: " + errores[error.code]);
 }
