@@ -28,7 +28,7 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" onload="obtenerMiPosicion(function(position){mostrarMiPosicionEnMapa(position)})">
 
   <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
 
@@ -83,40 +83,9 @@
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
     <script src="js/bxslider.js"></script>  
+    <script src="js/principal.js"></script>  
 
-  <script type="text/javascript">// <![CDATA[
-  if (navigator.geolocation) {
-    var tiempo_de_espera = 3000;
-    navigator.geolocation.getCurrentPosition(mostrarCoordenadas, mostrarError, { enableHighAccuracy: true, timeout: tiempo_de_espera, maximumAge: 0 } );
-  }
-  else {
-    alert("La Geolocalización no es soportada por este navegador");
-  }
-
-  function mostrarCoordenadas(position) {
-    //alert("Latitud: " + position.coords.latitude + ", Longitud: " + position.coords.longitude);
-      var loc={
-          title:'Aqui estoy',location:{lat:position.coords.latitude, lng:position.coords.longitude}
-      };
-      var pos=loc.location;
-              var tit=loc.title;
-      var marker=new google.maps.Marker({
-                  map:map,
-                  position:pos,
-                 title:tit,
-                 //contentString:contentString,
-                 animation:google.maps.Animation.DROP,
-                  
-              });
-
-  }
-
-  function mostrarError(error) {
-    var errores = {1: 'Permiso denegado', 2: 'Posición no disponible', 3: 'Expiró el tiempo de respuesta'};
-    alert("Error: " + errores[error.code]);
-  }
-  </script>
-
+  
   <script>
       var map;
       var markers=[];

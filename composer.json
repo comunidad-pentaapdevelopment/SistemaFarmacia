@@ -22,7 +22,10 @@
         ],
         "psr-4": {
             "SistemaFarmacia\\": "app/"
-        }
+        },
+        "files": [
+            "app/Helpers/funciones.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [
