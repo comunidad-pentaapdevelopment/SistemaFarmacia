@@ -28,7 +28,12 @@
 
 </head>
 
-<body id="page-top" class="index" onload="obtenerMiPosicion(function(position){console.log(position);mostrarCercaMio();})">
+<body id="page-top" class="index" onload="obtenerMiPosicion(function(position){console.log(position);
+        var url = window.location.href;
+        if(url.indexOf('miLatitud') == -1){
+            recargarPaginaConMiPosicion(position.coords);
+        }
+})">
 
     <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
 
@@ -92,13 +97,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($farmacias as $farm)
+                                        @foreach($farmaciasCercaMio as $farm)
                                         @if($farm->turno == 1)
                                         <tr style="background: #6ce06c" >
                                             <td>{{$farm->nombre}}</td>
                                             <td>{{$farm->direccion}}</td>
                                             <td>{{$farm->telefono}}</td>
-                                            <td>500mts</td>      
+                                            <td>{{$farm->distanciaAMostrar}}</td>      
                                             @if($farm->estaPago == 1)                           
                                               <td><a href="{{route('farmacia-detalle',$farm->id)}}"><button type="button" class="btn btn-info btn-sm">VER</button></a>
                                               </td>
@@ -111,7 +116,7 @@
                                             <td>{{$farm->nombre}}</td>
                                             <td>{{$farm->direccion}}</td>
                                             <td>{{$farm->telefono}}</td>
-                                            <td>500mts</td>     
+                                            <td>{{$farm->distanciaAMostrar}}</td>     
                                             @if($farm->estaPago == 1)                           
                                               <td><a href="{{route('farmacia-detalle',$farm->id)}}"><button type="button" class="btn btn-info btn-sm">VER</button></a>
                                                 </td>
@@ -124,7 +129,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                                {{$farmacias->fragment('farmacias')->links()}}
+                                {{$farmaciasCercaMio->fragment('farmacias')->links()}}
                         </div>
                     </div>
                 </div>
@@ -169,6 +174,13 @@
     
 
   <script>
+      function recargarPaginaConMiPosicion(position){
+        //console.log("http://localhost:8080/index?miLatitud="+position.latitude+"&miLongitud="+position.longitude);
+       //window.location.href = "http://localhost:8080/index?miLatitud="+position.latitude+"&miLongitud="+position.longitude;
+       var stringUrl= window.location.protocol+"//"+window.location.host+window.location.pathname+"?miLatitud="+position.latitude+"&miLongitud="+position.longitude;
+       console.log(stringUrl);
+       window.location.href = stringUrl;
+    }
       function ocultarCercaMio(){
         var cercaMio = document.getElementById('cerca');
         cercaMio.style.display = "none"; //Lo oculto
@@ -177,7 +189,6 @@
         var cercaMio = document.getElementById('cerca');
         cercaMio.style.display = "block"; //Lo oculto
       }
-      ocultarCercaMio();
 
       var map;
       var markers=[];
